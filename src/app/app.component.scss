@@ -24,7 +24,6 @@ body {
   font-family: var(--font-family);
   background-color: var(--background-color);
   color: var(--text-primary);
-  color: white;
   /* Make body take full height */
   min-height: 100vh;
   display: flex;
@@ -93,7 +92,6 @@ body {
 .sidebar-item a {
   text-decoration: none;
   color: var(--text-primary);
-  colot: white;
   font-weight: 500;
 }
 
@@ -193,7 +191,7 @@ body {
   border-radius: var(--border-radius);
   background-color: var(--accent-color);
   color: var(--text-primary);
-  color: white;
+
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
