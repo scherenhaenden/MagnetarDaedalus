@@ -1,0 +1,209 @@
+/* Global Variables */
+$background-color: #0b0b0b;
+$sidebar-color: rgba(20, 20, 30, 0.6);
+$card-color: rgba(40, 40, 60, 0.6);
+$accent-color: #9c27b0; /* pick a bright neon color */
+$hover-color: #e040fb;  /* slightly lighter neon variant */
+$text-primary: #ffffff;
+$text-secondary: #a5a5a5;
+$border-radius: 12px;
+$box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+$font-family: 'Poppins', sans-serif;
+$neon-pulse: 2s infinite alternate;
+$card-glow: 0 0 20px rgba(156, 39, 176, 0.05);
+$sidebar-glow: 0 0 10px rgba(156, 39, 176, 0.1);
+
+/* Reset and Global Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  background-color: $background-color;
+  color: $text-primary;
+  min-height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Outer Wrapper to center everything */
+.outer-wrapper {
+  width: 810hv;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Container for sidebar + main content */
+.container {
+  display: flex;
+  height: 85vh;
+  width: 100%;
+  gap: 20px;
+  border-radius: $border-radius;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: $sidebar-color;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(156, 39, 176, 0.2);
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  // Combine your shadows into one line:
+  box-shadow: $sidebar-glow, $box-shadow;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: $border-radius;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $hover-color;
+    transform: translateX(5px);
+    box-shadow: 0 0 10px $hover-color;
+  }
+
+  a {
+    text-decoration: none;
+    color: $text-primary;
+    font-weight: 500;
+  }
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 300px; /* enough space for the sidebar */
+}
+
+/* Card */
+.card {
+  width: 100%;
+  max-width: 800px;
+  backdrop-filter: blur(10px);
+  background-color: $card-color;
+  border-radius: $border-radius;
+  padding: 20px;
+  box-shadow: $box-shadow;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(156, 39, 176, 0.2);
+  box-shadow: $card-glow, $box-shadow;
+  /* Let’s say you want it to fill 70% of the available horizontal space */
+  width: 70%;
+  /* And a minimum size so it’s not too small on large screens */
+  min-width: 600px;
+  /* For vertical sizing, you could do a percentage or a viewport-based approach: */
+  height: 70%;       /* 70% of the container’s height */
+  min-height: 400px; /* Fallback for small windows */
+  /* ... the rest of your styling */
+  width: 60vw;         /* 60% of the viewport width */
+  height: 90vh;        /* 60% of the viewport height */
+  min-width: 500px;    /* Just in case the window is small */
+  min-height: 350px;   /* Also a safety net */
+}
+
+/* Chatbox */
+.chatbox {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .chatbox-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $accent-color;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    color: $text-secondary;
+  }
+
+  .chatbox-content {
+    background-color: rgba(30, 30, 50, 0.8);
+    border-radius: $border-radius;
+    padding: 15px;
+    min-height: 300px;
+    height: 1000%;
+    height: 73vh;        /* 60% of the viewport height */
+    overflow-y: auto;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3);
+
+    pre, code {
+      color: $text-primary;
+      font-family: 'Courier New', monospace;
+    }
+  }
+
+  .chatbox-input {
+    display: flex;
+    gap: 10px;
+
+    textarea {
+      flex-grow: 1;
+      padding: 10px;
+      border: none;
+      border-radius: $border-radius;
+      background-color: rgba(30, 30, 50, 0.8);
+      color: $text-primary;
+      font-family: $font-family;
+      resize: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: $border-radius;
+      background-color: $accent-color;
+      color: $text-primary;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: neonPulse $neon-pulse;
+
+      &:hover {
+        background-color: $hover-color;
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+/* Neon Pulse Animation */
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px #e040fb;
+  }
+
+  50% {
+    box-shadow: 0 0 20px #e040fb;
+  }
+}
